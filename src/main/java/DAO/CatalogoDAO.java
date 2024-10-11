@@ -59,5 +59,11 @@ public class CatalogoDAO {
                 .getResultList();
     }
 
+    public List<Catalogo> trovaPerAutore(String autore) {
+        return entityManager.createQuery("SELECT c FROM Catalogo c WHERE c.autore = :autore", Catalogo.class)
+                .setParameter("autore", autore)
+                .getResultList();
+    }
+
 
 }

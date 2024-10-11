@@ -47,7 +47,11 @@ public class Application {
 
         System.out.println("Esercizio 4: Ricerca per anno pubblicazione");
         List<Catalogo> cataloghiAnno = cd.trovaPerAnnoPubblicazione(2024);
-        cataloghiAnno.forEach(c -> System.out.println("Trovato per anno: " + c.getTitolo()));
+        cataloghiAnno.forEach(System.out::println);
+
+        System.out.println("Esercizio 5: Ricerca per autore");
+        List<Catalogo> cataloghiAutore = cd.trovaPerAutore("pippo");
+        cataloghiAutore.forEach(System.out::println);
 
 
 
