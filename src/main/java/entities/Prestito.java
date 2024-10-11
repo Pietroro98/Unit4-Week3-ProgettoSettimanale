@@ -9,11 +9,11 @@ public class Prestito {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "utente_id", nullable = false)
+    @JoinColumn(name = "utente", nullable = false)
     private Utente utente;
 
     @ManyToOne
-    @JoinColumn(name = "catalogo_isbn", nullable = false)
+    @JoinColumn(name = "catalogo", nullable = false)
     private Catalogo catalogo;
 
     private String dataInizioPrestito;

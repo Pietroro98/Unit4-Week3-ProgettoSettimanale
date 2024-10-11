@@ -1,32 +1,35 @@
 package entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
+import jakarta.persistence.*;
+
+import java.util.UUID;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Catalogo {
 
     @Id
-    private String ISBN;
+    @GeneratedValue
+    private UUID catalogo_ISBN;
     private String titolo;
     private int annoPubblicazione;
     private int numeroPagine;
 
     public Catalogo(){}
 
-    public Catalogo(String ISBN, String titolo, int annoPubblicazione, int numeroPagine) {
-        this.ISBN = ISBN;
+    public Catalogo(String titolo, int annoPubblicazione, int numeroPagine) {
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
         this.numeroPagine = numeroPagine;
     }
 
-    public String getISBN() {
-        return ISBN;
+    public UUID getCatalogo_ISBN() {
+        return catalogo_ISBN;
     }
+    public void setCatalogo_ISBN(UUID catalogo_ISBN) {
+        this.catalogo_ISBN = catalogo_ISBN;
+    }
+
     public String getTitolo() {
         return titolo;
     }
@@ -49,7 +52,7 @@ public abstract class Catalogo {
     @Override
     public String toString() {
         return "Catalogo{" +
-                "ISBN='" + ISBN + '\'' +
+                "ISBN='" + catalogo_ISBN + '\'' +
                 ", titolo='" + titolo + '\'' +
                 ", annoPubblicazione=" + annoPubblicazione +
                 ", numeroPagine=" + numeroPagine +
