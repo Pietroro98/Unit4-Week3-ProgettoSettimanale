@@ -11,6 +11,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
+import java.util.List;
 import java.util.UUID;
 
 
@@ -43,6 +44,10 @@ public class Application {
         System.out.println("Esercizio 2: Rimozione di un elemento del catalogo dato un codice ISBN");
 
              cd.findByCatalogoByIsbn(UUID.fromString("75b79a96-bedf-48a4-8cf2-838d9923bbe5"));
+
+        System.out.println("Esercizio 4: Ricerca per anno pubblicazione");
+        List<Catalogo> cataloghiAnno = cd.trovaPerAnnoPubblicazione(2024);
+        cataloghiAnno.forEach(c -> System.out.println("Trovato per anno: " + c.getTitolo()));
 
 
 
